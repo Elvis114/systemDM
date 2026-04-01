@@ -1,0 +1,11 @@
+const express = require('express');
+const r = express.Router();
+const c = require('../controllers/feeController');
+const { protect } = require('../middleware/auth');
+const { adminOnly } = require('../middleware/roleCheck');
+r.get('/summary',              protect, c.getFeeSummary);
+r.get('/student/:studentId',   protect, c.getStudentFees);
+r.get('/',                     protect, c.getFees);
+r.post('/',                    protect, adminOnly, c.createFee);
+r.put('/:id',                  protect, adminOnly, c.updateFee);
+module.exports = r;

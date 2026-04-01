@@ -1,0 +1,12 @@
+const express = require('express');
+const r = express.Router();
+const c = require('../controllers/classController');
+const { protect } = require('../middleware/auth');
+const { adminOnly } = require('../middleware/roleCheck');
+r.get('/',              protect, c.getClasses);
+r.get('/:id',           protect, c.getClassById);
+r.get('/:id/students',  protect, c.getClassStudents);
+r.post('/',             protect, adminOnly, c.createClass);
+r.put('/:id',           protect, adminOnly, c.updateClass);
+r.delete('/:id',        protect, adminOnly, c.deleteClass);
+module.exports = r;

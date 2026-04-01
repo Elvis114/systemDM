@@ -1,0 +1,12 @@
+const express = require('express');
+const r = express.Router();
+const c = require('../controllers/attendanceController');
+const { protect } = require('../middleware/auth');
+const { teacherOrAdmin } = require('../middleware/roleCheck');
+r.get('/',                         protect, c.getAttendance);
+r.get('/student/:studentId',       protect, c.getStudentAttendance);
+r.get('/class/:classId',           protect, c.getClassAttendance);
+r.post('/',                        protect, teacherOrAdmin, c.markAttendance);
+r.post('/bulk',                    protect, teacherOrAdmin, c.bulkMarkAttendance);
+r.put('/:id',                      protect, teacherOrAdmin, c.updateAttendance);
+module.exports = r;

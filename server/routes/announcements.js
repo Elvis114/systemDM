@@ -1,0 +1,10 @@
+const express = require('express');
+const r = express.Router();
+const c = require('../controllers/announcementController');
+const { protect } = require('../middleware/auth');
+const { teacherOrAdmin } = require('../middleware/roleCheck');
+r.get('/',    protect, c.getAnnouncements);
+r.post('/',   protect, teacherOrAdmin, c.createAnnouncement);
+r.put('/:id', protect, teacherOrAdmin, c.updateAnnouncement);
+r.delete('/:id', protect, teacherOrAdmin, c.deleteAnnouncement);
+module.exports = r;

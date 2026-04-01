@@ -1,0 +1,13 @@
+const express = require('express');
+const r = express.Router();
+const c = require('../controllers/gradeController');
+const { protect } = require('../middleware/auth');
+const { teacherOrAdmin } = require('../middleware/roleCheck');
+r.get('/',                        protect, c.getGrades);
+r.get('/student/:studentId',      protect, c.getStudentGrades);
+r.get('/report/:studentId',       protect, c.getReportCard);
+r.post('/',                       protect, teacherOrAdmin, c.createGrade);
+r.post('/bulk',                   protect, teacherOrAdmin, c.bulkCreateGrades);
+r.put('/:id',                     protect, teacherOrAdmin, c.updateGrade);
+r.delete('/:id',                  protect, teacherOrAdmin, c.deleteGrade);
+module.exports = r;
