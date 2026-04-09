@@ -28,6 +28,11 @@ npm run seed
 npm run dev
 ```
 
+For local development, create `client/.env`:
+```env
+VITE_API_URL=http://localhost:5000
+```
+
 Open **http://localhost:3000**
 
 ---
