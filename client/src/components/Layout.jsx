@@ -37,7 +37,7 @@ export default function Layout() {
 
   const Sidebar = ({ mobile = false }) => (
     <aside style={{
-      width: 220, background: '#0f172a', color: '#fff',
+      width: 220, background: 'linear-gradient(180deg, #0f172a, #111827)', color: '#f8fafc',
       display: 'flex', flexDirection: 'column',
       height: '100vh', position: mobile ? 'relative' : 'fixed',
       top: 0, left: 0, zIndex: 200, overflowY: 'auto',
@@ -95,7 +95,7 @@ export default function Layout() {
       )}
 
       {/* Main content */}
-      <div style={{ marginLeft: 220, flex: 1, display: 'flex', flexDirection: 'column', background: '#f8fafc', minHeight: '100vh' }}>
+      <div style={{ marginLeft: 220, flex: 1, display: 'flex', flexDirection: 'column', background: '#f1f5f9', minHeight: '100vh' }}>
         {/* Top navbar */}
         <header style={{ background: '#fff', padding: '12px 28px', borderBottom: '1px solid #e2e8f0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'sticky', top: 0, zIndex: 100 }}>
           <button onClick={() => setSidebarOpen(true)} style={{ background: 'none', border: 'none', fontSize: 20, cursor: 'pointer', display: 'none' }}>☰</button>

@@ -64,7 +64,7 @@ export function Badge({ label }) {
 export function Spinner({ size = 40 }) {
   return (
     <div style={{ display:'flex', justifyContent:'center', alignItems:'center', padding:40 }}>
-      <div style={{ width:size, height:size, border:'3px solid #e2e8f0', borderTop:'3px solid #3b82f6', borderRadius:'50%', animation:'spin 0.8s linear infinite' }} />
+      <div style={{ width:size, height:size, border:'3px solid #cbd5e1', borderTop:'3px solid #2563eb', borderRadius:'50%', animation:'spin 0.8s linear infinite' }} />
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
     </div>
   );
@@ -112,19 +112,19 @@ export function Field({ label, required, children }) {
 }
 
 export const inputStyle = {
-  width:'100%', padding:'9px 12px', border:'1px solid #d1d5db',
-  borderRadius:7, fontSize:13, outline:'none', boxSizing:'border-box',
-  transition:'border-color 0.15s',
+  width:'100%', padding:'10px 14px', border:'1px solid #cbd5e1', background:'#f8fafc',
+  borderRadius:8, fontSize:14, outline:'none', boxSizing:'border-box',
+  color:'#0f172a', transition:'border-color 0.15s ease',
 };
 
 export const btnPrimary = {
-  padding:'9px 20px', background:'#3b82f6', color:'#fff',
-  border:'none', borderRadius:8, cursor:'pointer', fontSize:13, fontWeight:600,
+  padding:'10px 22px', background:'#2563eb', color:'#fff',
+  border:'none', borderRadius:10, cursor:'pointer', fontSize:14, fontWeight:700,
 };
 
 export const btnSecondary = {
-  padding:'9px 20px', background:'#f1f5f9', color:'#374151',
-  border:'none', borderRadius:8, cursor:'pointer', fontSize:13, fontWeight:500,
+  padding:'10px 22px', background:'#eff6ff', color:'#1e293b',
+  border:'1px solid #bfdbfe', borderRadius:10, cursor:'pointer', fontSize:14, fontWeight:600,
 };
 
 export const btnDanger = {

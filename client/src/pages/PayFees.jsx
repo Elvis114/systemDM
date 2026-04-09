@@ -140,17 +140,17 @@ export default function PayFees() {
 
       {/* Header */}
       <div style={{ marginBottom: 24 }}>
-        <h1 style={{ margin: '0 0 4px', fontSize: 24, fontWeight: 800, color: '#1e293b' }}>💳 Pay School Fees</h1>
-        <p style={{ margin: 0, fontSize: 13, color: '#64748b' }}>
+        <h1 style={{ margin: '0 0 4px', fontSize: 26, fontWeight: 800, color: '#0f172a' }}>💳 Pay School Fees</h1>
+        <p style={{ margin: 0, fontSize: 14, color: '#475569' }}>
           Pay online securely using MoMo or Card — powered by Paystack
         </p>
       </div>
 
       {/* Step 1 — Select Student & Fee */}
-      <div style={{ background: '#fff', borderRadius: 12, padding: 24, boxShadow: '0 1px 4px rgba(0,0,0,0.06)', marginBottom: 20 }}>
+      <div style={{ background: '#ffffff', borderRadius: 16, padding: 26, boxShadow: '0 20px 70px rgba(15,23,42,0.06)', marginBottom: 22 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-          <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#3b82f6', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 700 }}>1</div>
-          <h3 style={{ margin: 0, fontSize: 15, fontWeight: 700, color: '#1e293b' }}>Student & Fee Details</h3>
+          <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#2563eb', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 700 }}>1</div>
+          <h3 style={{ margin: 0, fontSize: 15, fontWeight: 700, color: '#0f172a' }}>Student & Fee Details</h3>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
@@ -159,7 +159,7 @@ export default function PayFees() {
               <select required {...set('studentId')} style={inputStyle}>
                 <option value="">Select student...</option>
                 {students.map(s => (
-                  <option key={s._id} value={s._id}>{s.name} ({s.studentId})</option>
+                  <option key={s._id} value={s._id}>{s.name } ({s.studentId})</option>
                 ))}
               </select>
             </Field>
@@ -168,15 +168,15 @@ export default function PayFees() {
           {/* Pending fees shortcut */}
           {pending.length > 0 && (
             <div style={{ gridColumn: '1 / -1' }}>
-              <div style={{ fontSize: 12, fontWeight: 600, color: '#64748b', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <div style={{ fontSize: 12, fontWeight: 600, color: '#475569', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                 Outstanding Fees — click to auto-fill
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                 {pending.map(fee => (
                   <button key={fee._id} onClick={() => fillFromPending(fee)} style={{
-                    padding: '7px 14px', borderRadius: 8, border: '1px solid #fca5a5',
-                    background: '#fff5f5', cursor: 'pointer', fontSize: 12, fontWeight: 600,
-                    color: '#dc2626', display: 'flex', gap: 6, alignItems: 'center',
+                    padding: '8px 16px', borderRadius: 10, border: '1px solid #93c5fd',
+                    background: '#eff6ff', cursor: 'pointer', fontSize: 13, fontWeight: 600,
+                    color: '#1d4ed8', display: 'flex', gap: 8, alignItems: 'center',
                   }}>
                     <span>⚠️</span>
                     <span>{fee.feeType}</span>
@@ -226,10 +226,10 @@ export default function PayFees() {
       </div>
 
       {/* Step 2 — Choose Payment Method */}
-      <div style={{ background: '#fff', borderRadius: 12, padding: 24, boxShadow: '0 1px 4px rgba(0,0,0,0.06)', marginBottom: 20 }}>
+      <div style={{ background: '#ffffff', borderRadius: 16, padding: 26, boxShadow: '0 20px 70px rgba(15,23,42,0.06)', marginBottom: 22 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-          <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#3b82f6', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 700 }}>2</div>
-          <h3 style={{ margin: 0, fontSize: 15, fontWeight: 700, color: '#1e293b' }}>Choose Payment Method</h3>
+          <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#2563eb', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 700 }}>2</div>
+          <h3 style={{ margin: 0, fontSize: 15, fontWeight: 700, color: '#0f172a' }}>Choose Payment Method</h3>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
@@ -237,15 +237,15 @@ export default function PayFees() {
             <button key={m.id} type="button"
               onClick={() => setForm(f => ({ ...f, paymentMethod: m.id, momoNumber: '' }))}
               style={{
-                padding: '16px', border: `2px solid ${form.paymentMethod === m.id ? m.color : '#e2e8f0'}`,
-                borderRadius: 10, cursor: 'pointer', textAlign: 'left',
-                background: form.paymentMethod === m.id ? m.bg : '#fff',
-                transition: 'all 0.15s',
+                padding: '16px', border: `2px solid ${form.paymentMethod === m.id ? '#2563eb' : '#e2e8f0'}`,
+                borderRadius: 14, cursor: 'pointer', textAlign: 'left',
+                background: form.paymentMethod === m.id ? '#eef2ff' : '#f8fafc',
+                transition: 'all 0.15s ease',
               }}>
               <div style={{ fontSize: 24, marginBottom: 6 }}>{m.icon}</div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: form.paymentMethod === m.id ? m.color : '#1e293b' }}>{m.label}</div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: form.paymentMethod === m.id ? '#1d4ed8' : '#0f172a' }}>{m.label}</div>
               {form.paymentMethod === m.id && (
-                <div style={{ fontSize: 11, color: m.color, marginTop: 2, fontWeight: 600 }}>✓ Selected</div>
+                <div style={{ fontSize: 11, color: '#2563eb', marginTop: 2, fontWeight: 600 }}>✓ Selected</div>
               )}
             </button>
           ))}
@@ -271,8 +271,8 @@ export default function PayFees() {
         )}
 
         {form.paymentMethod === 'Online - Card' && (
-          <div style={{ marginTop: 16, padding: 16, background: '#eff6ff', borderRadius: 8, border: '1px solid #bfdbfe' }}>
-            <p style={{ margin: 0, fontSize: 13, color: '#1d4ed8' }}>
+          <div style={{ marginTop: 16, padding: 16, background: '#eff6ff', borderRadius: 10, border: '1px solid #bfdbfe' }}>
+            <p style={{ margin: 0, fontSize: 13, color: '#1e40af' }}>
               💳 You will be redirected to a secure Paystack page to enter your card details. Visa and Mastercard accepted.
             </p>
           </div>
@@ -321,10 +321,10 @@ export default function PayFees() {
       )}
 
       {/* Paystack badge */}
-      <div style={{ textAlign: 'center', padding: '16px 0' }}>
-        <div style={{ fontSize: 12, color: '#94a3b8' }}>
+      <div style={{ textAlign: 'center', padding: '18px 0' }}>
+        <div style={{ fontSize: 12, color: '#64748b' }}>
           🔒 Payments processed securely by{' '}
-          <a href="https://paystack.com" target="_blank" rel="noopener noreferrer" style={{ color: '#3b82f6', fontWeight: 600 }}>
+          <a href="https://paystack.com" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb', fontWeight: 600 }}>
             Paystack
           </a>
         </div>
