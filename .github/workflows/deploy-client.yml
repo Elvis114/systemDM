@@ -32,6 +32,7 @@ jobs:
         npm run build
       env:
         VITE_API_URL: ${{ secrets.VITE_API_URL }}
+        VITE_APP_BASE: /systemDM/
 
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/main'
@@ -39,4 +40,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: client/dist
-        cname: your-custom-domain.com  # Remove if not using custom domain
+        publish_branch: gh-pages
