@@ -32,6 +32,17 @@ Open **http://localhost:3000**
 
 ---
 
+## 🌐 Live Demo
+
+The app is deployed and live!
+
+- **Frontend**: https://elvis114.github.io/systemDM/
+- **Backend API**: https://systemdm.onrender.com
+
+Use the same login credentials above to test the live version.
+
+---
+
 ## 🔐 Login Credentials
 
 | Role    | Email                  | Password    |
